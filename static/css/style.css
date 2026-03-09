@@ -1,0 +1,64 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+height: 100%;
+margin: 0;
+padding: 0;
+font-family:'Orbitron',sans-serif;
+background:linear-gradient(-45deg,#000000,#0f2027,#203a43,#2c5364);
+background-size:400% 400%;
+animation:gradient 12s ease infinite;
+color:white;
+}
+
+@keyframes gradient {
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.navbar {
+display:flex;
+justify-content:space-between;
+padding:20px 50px;
+background:rgba(0,0,0,0.6);
+
+}
+
+.logo {color:cyan;font-weight:600;}
+
+.nav-links a {
+margin-left:20px;
+color:white;
+text-decoration:none;
+}
+
+.page-content {padding:40px;}
+
+.card {
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:15px;
+margin:20px 0;
+}
+
+.button-primary {
+background:cyan;
+color:black;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.alert-danger {
+border:2px solid red;
+animation:blink 1s infinite;
+}
+
+@keyframes blink {
+50%{opacity:0.4;}
+}

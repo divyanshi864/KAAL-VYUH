@@ -1,0 +1,449 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <div class="sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-logo">
+         DASHBOARD
+    </div>
+
+    <!-- System Status -->
+    <div class="sidebar-section status-box">
+        <p class="status-dot"></p>
+        <div>
+            <h4>SYSTEM ACTIVE</h4>
+            <p>AI Monitoring Enabled</p>
+        </div>
+    </div>
+
+    <!-- Mini Radar -->
+    <div class="sidebar-section radar-box">
+        <h4>📡 MINI RADAR</h4>
+        <div class="radar-circle">
+            <div class="radar-sweep"></div>
+        </div>
+    </div>
+
+    <!-- Threat Level -->
+    <div class="sidebar-section threat-box">
+        <h4>⚠ THREAT LEVEL</h4>
+        <div class="threat-bar">
+            <div class="threat-fill"></div>
+        </div>
+    </div>
+
+    <!-- Alerts -->
+    <div class="sidebar-section alerts-box">
+        <h4>🚨 ALERTS</h4>
+        <ul>
+            <li>High-risk object detected</li>
+            <li>Signal anomaly</li>
+        </ul>
+    </div>
+
+    <!-- Footer Data Info -->
+        <div class="sidebar-footer">
+        <p class="data-source">Data: NORAD TLE</p>
+        <p class="last-update">Last Update: <span id="lastUpdate">Just now</span></p>
+    </div>
+
+</div>
+
+
+    <!-- Main -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+
+    <div class="topbar-left">
+        <h1>Orbital Monitoring System</h1>
+        <span class="status">
+            ● System Active
+        </span>
+    </div>
+
+    <div class="topbar-right">
+
+        <!-- Search -->
+        <div class="search-box">
+            <input type="text" placeholder="Search satellites...">
+        </div>
+
+        <!-- Icons -->
+        <div class="icon-group">
+            <span class="icon">🔔</span>
+            <span class="icon">✉️</span>
+        </div>
+
+        <!-- Profile -->
+        <div class="profile">
+            <div class="avatar">DP</div>
+            <div class="profile-info">
+                <span class="name">Divyansh</span>
+                <span class="role">Mission Control</span>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+
+        <!-- Stats -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Tracked Objects</p>
+                <h2>12,540</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Active Satellites</p>
+                <h2>2,450</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Space Debris</p>
+                <h2>10,090</h2>
+            </div>
+
+            <div class="stat-card danger">
+                <p>High Risk Alerts</p>
+                <h2>3</h2>
+            </div>
+
+        </section>
+
+
+        <!-- Visualization + right panel -->
+        <section class="main-grid">
+
+            <!-- Earth -->
+            <div class="earth-panel">
+
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa" alt="earth">
+
+                <div class="satellite-popup">
+                    <h3>SAT-2345</h3>
+                    <p>Altitude: 698 km</p>
+                    <p>Velocity: 7.6 km/s</p>
+                    <button>View Details</button>
+                </div>
+
+            </div>
+
+
+            <!-- Right panel -->
+            <!-- Right panel -->
+<div class="side-widgets">
+
+    <!-- Collision Risk -->
+    <div class="widget">
+
+        <div class="widget-header">
+            <span class="widget-icon">⚠</span>
+            <h3>Collision Risk Analysis</h3>
+        </div>
+
+        <div class="risk-alert">
+            <span class="pulse"></span>
+            <strong>Potential Collision Detected</strong>
+        </div>
+
+        <div class="widget-row">
+            <span class="label">Objects</span>
+            <span class="value">SAT-2345 vs DEB-6789</span>
+        </div>
+
+        <div class="widget-row">
+            <span class="label">Risk Level</span>
+            <span class="value high">High</span>
+        </div>
+
+        <div class="widget-row">
+            <span class="label">Closest Approach</span>
+            <span class="value">120 meters</span>
+        </div>
+
+        <div class="timer">
+            ⏳ Time to Conjunction: <strong>02h 15m 30s</strong>
+        </div>
+
+    </div>
+
+
+    <!-- Alerts -->
+    <div class="widget">
+
+        <div class="widget-header">
+            <span class="widget-icon">🚨</span>
+            <h3>Alerts & Warnings</h3>
+        </div>
+
+        <ul class="alert-list">
+            <li>⚠ High-Risk Alert: SAT-2345 vs DEB-6789</li>
+            <li>⚡ Conjunction Warning in 2 hours</li>
+            <li>🛰 New Debris Detected in LEO</li>
+        </ul>
+
+    </div>
+
+
+    <!-- Future Objectives -->
+    <div class="widget">
+
+        <div class="widget-header">
+            <span class="widget-icon">🎯</span>
+            <h3>Future Objectives</h3>
+        </div>
+
+        <ul class="objective-list">
+            <li>Autonomous Collision Avoidance</li>
+            <li>AI Maneuver Planning</li>
+            <li>Expand to MEO / GEO</li>
+            <li>Global Agency Collaboration</li>
+        </ul>
+
+    </div>
+
+</div>
+
+        </section>
+
+
+        <!-- Orbital analytics -->
+        <section class="analytics-grid">
+
+       <div class="widget chart">
+        <canvas id="debrisChart"></canvas>
+       </div>
+
+       <div class="widget chart">
+        <canvas id="collisionChart"></canvas>
+       </div>
+
+       <div class="widget chart">
+        <canvas id="orbitChart"></canvas>
+       </div>
+
+        </section>
+
+    </main>
+
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+/* ======================================
+   🔥 REAL-TIME STREAMING LINE (with pulse)
+====================================== */
+
+const lineCtx = document.getElementById('debrisChart');
+
+let labels = [];
+let dataPoints = [];
+
+function getTime() {
+    return new Date().toLocaleTimeString();
+}
+
+for (let i = 0; i < 8; i++) {
+    labels.push(getTime());
+    dataPoints.push(4000 + Math.random() * 500);
+}
+
+const lineChart = new Chart(lineCtx, {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Live Debris Telemetry',
+            data: dataPoints,
+            borderColor: '#22c55e',
+            backgroundColor: 'rgba(34,197,94,0.08)',
+            borderWidth: 2,
+            pointRadius: 0,
+            tension: 0.45,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        animation: false,
+        plugins: {
+            legend: { labels: { color: '#cbd5e1' } }
+        }
+    }
+});
+
+/* 📡 Signal Pulse Effect */
+setInterval(() => {
+    labels.push(getTime());
+    dataPoints.push(dataPoints[dataPoints.length - 1] + (Math.random()*200 - 100));
+    labels.shift();
+    dataPoints.shift();
+    lineChart.update('none');
+}, 1500);
+
+
+
+/* ======================================
+   🚨 ANOMALY DETECTION BAR CHART
+====================================== */
+
+const barCtx = document.getElementById('collisionChart');
+let barData = [30, 50, 65];
+
+const barChart = new Chart(barCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Low Risk','Medium Risk','High Risk'],
+        datasets: [{
+            label: 'Collision Probability (%)',
+            data: barData,
+            backgroundColor: ['#22c55e','#f59e0b','#ef4444'],
+            borderRadius: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        animation: { duration: 800 },
+        plugins: {
+            legend: { labels: { color: '#cbd5e1' } }
+        }
+    }
+});
+
+/* 🔥 Blinking anomaly detection */
+setInterval(() => {
+    barData = barData.map(val => {
+        let change = Math.random()*10 - 5;
+        let newVal = val + change;
+        return Math.max(5, Math.min(95, newVal));
+    });
+
+    barChart.data.datasets[0].data = barData;
+
+    // If high risk above 75 → blink
+    if (barData[2] > 75) {
+        barChart.data.datasets[0].backgroundColor[2] = '#ff0000';
+    } else {
+        barChart.data.datasets[0].backgroundColor[2] = '#ef4444';
+    }
+
+    barChart.update();
+}, 3000);
+
+
+
+/* ======================================
+   🌍 DOUGHNUT WITH CENTER + RADAR
+====================================== */
+
+const doughnutCtx = document.getElementById('orbitChart');
+
+let orbitData = [52,18,30];
+
+const centerTextPlugin = {
+    id: 'centerText',
+    beforeDraw(chart) {
+        const { width } = chart;
+        const { height } = chart;
+        const ctx = chart.ctx;
+        ctx.restore();
+
+        let total = chart.data.datasets[0].data.reduce((a,b)=>a+b,0);
+
+        ctx.font = "bold 22px Rajdhani";
+        ctx.fillStyle = "#ffffff";
+        ctx.textBaseline = "middle";
+
+        const text = total.toFixed(0);
+        const textX = Math.round((width - ctx.measureText(text).width) / 2);
+        const textY = height / 2;
+
+        ctx.fillText(text, textX, textY);
+        ctx.save();
+    }
+};
+
+const radarSweepPlugin = {
+    id: 'radarSweep',
+    afterDraw(chart) {
+        const ctx = chart.ctx;
+        const { width, height } = chart;
+        const radius = chart.getDatasetMeta(0).data[0].outerRadius;
+
+        ctx.save();
+        ctx.translate(width/2, height/2);
+
+        let time = Date.now() / 1000;
+        let angle = time % (2*Math.PI);
+
+        ctx.rotate(angle);
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.arc(0,0,radius,0,0.2);
+        ctx.fillStyle = "rgba(0,255,255,0.15)";
+        ctx.fill();
+        ctx.restore();
+    }
+};
+
+const doughnutChart = new Chart(doughnutCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['LEO','MEO','GEO'],
+        datasets: [{
+            data: orbitData,
+            backgroundColor: ['#2563eb','#0ea5e9','#f59e0b'],
+            hoverOffset: 15
+        }]
+    },
+    options: {
+        cutout: '70%',
+        animation: { animateRotate: true },
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { color: '#cbd5e1' }
+            }
+        }
+    },
+    plugins: [centerTextPlugin, radarSweepPlugin]
+});
+
+/* 🎯 Live orbit distribution update */
+setInterval(() => {
+    let leo = 40 + Math.random()*20;
+    let meo = 10 + Math.random()*15;
+    let geo = 100 - leo - meo;
+
+    orbitData = [leo, meo, geo];
+    doughnutChart.data.datasets[0].data = orbitData;
+    doughnutChart.update();
+}, 4000);
+
+});
+
+/* Live last update time */
+function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+    document.getElementById("lastUpdate").textContent = timeString;
+}
+
+updateTime();
+setInterval(updateTime, 60000); // update every minute
+</script>
+
+{% endblock %}

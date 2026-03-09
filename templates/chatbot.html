@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>AI Orbital Assistant</h2>
+
+<div class="card">
+<div id="chat-box"></div>
+<input type="text" id="user-input">
+<button onclick="send()">Send</button>
+</div>
+
+<script>
+function send(){
+let msg = document.getElementById("user-input").value;
+
+fetch("/chat",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({message:msg})
+})
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("chat-box").innerHTML +=
+"<p><b>You:</b>"+msg+"</p><p><b>AI:</b>"+data.reply+"</p>";
+});
+}
+</script>
+
+{% endblock %}

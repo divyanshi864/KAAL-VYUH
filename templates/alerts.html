@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Collision Alerts</title>
+</head>
+<body>
+
+<h1>🚨 Potential Collisions</h1>
+
+{% if collisions %}
+    <ul>
+    {% for c in collisions %}
+        <li>{{ c.Satellite_1 }} ⚠ {{ c.Satellite_2 }} ({{ c.Distance_km }} km)</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No close approaches detected.</p>
+{% endif %}
+
+<a href="/"><button>Back</button></a>
+
+</body>
+</html>

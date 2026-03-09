@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About KAAL-VYUH | Advanced SSA Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/static/css/about.css">
+
+</head>
+
+<body>
+
+<nav>
+    <div><strong>KAAL-VYUH</strong></div>
+    <div>
+        <a href="#mission">Mission</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#technology">Technology</a>
+        <a href="#impact">Impact</a>
+        <a href="#future">Future Vision</a>
+        <a href="#gallery">Gallery</a>
+    </div>
+</nav>
+
+<!-- HERO SLIDESHOW -->
+<div class="hero">
+
+<div class="slide active" style="background-image:url_for('static', filename='image/KAAL-VYUH.jpg')" 
+     alt="Orbital Debris" class="mission.img">
+    <div class="slide-content">
+        <h1>KAAL-VYUH</h1>
+        <p>Safeguarding the future of Orbit Through Intelligent Space Situational Awareness</p>
+
+    </div>
+</div>
+
+<div class="slide active" style="background-image:url('https://images-assets.nasa.gov/image/iss040e090540/iss040e090540~orig.jpg')">
+    <div class="slide-content">
+        <h1>Real-Time Orbital Tracking</h1>
+        <p>Monitoring 30,000+ space objects using precise orbital propagation models.</p>
+    </div>
+</div>
+
+<div class="slide active" style="background-image:url('https://images-assets.nasa.gov/image/PIA04921/PIA04921~orig.jpg')">
+    <div class="slide-content">
+        <h1>Collision Risk Intelligence</h1>
+        <p>AI-powered conjunction assessment and predictive risk modeling.</p>
+    </div>
+</div>
+
+</div>
+
+<section id="mission">
+<h2>Mission Overview</h2>
+<div class="card">
+<span class="highlight">KAAL-VYUH</span> is an advanced <span class="highlight">Space Situational Awareness (SSA)</span> 
+platform engineered to safeguard Earth’s orbital ecosystem from escalating congestion, debris proliferation, and collision risk.
+
+With the rapid increase in satellite launches and orbital debris, 
+Earth’s space environment is becoming increasingly congested. 
+KAAL-VYUH addresses this critical challenge by building a 
+real-time tracking and collision intelligence network 
+for satellites and debris objects.
+
+KAAL-VYUH integrates open NORAD TLE data, SGP4 propagation algorithms, predictive analytics, Rule-Based AI classification, 
+and interactive and real-time 3D visualization to create a unified orbital defense intelligence platform.
+
+<h3><span class="highlight">It's mission is to:</span></h3>
+<ul>
+<li>Enhance orbital safety through predictive collision detection.</li>
+<li>Enable real-time situational awareness for operators.</li>
+<li>Support sustainable and responsible space operations.</li>
+<li>Democratize orbital intelligence for students and researchers.</li>
+</ul>
+
+<h3><span class="highlight">Strategic Objectives:</span></h3>
+<ul>
+<li>Predict and mitigate high-risk conjunction events.</li>
+<li>Deliver real-time orbital traffic intelligence dashboards.</li>
+<li>Enable fuel-optimized maneuver decision support.</li>
+<li>Preserve long-term orbital sustainability.</li>
+<li>Provide accessible orbital analytics for academia and defense.</li>
+</ul>
+
+</div>
+</section>
+
+<section id="capabilities">
+    <h2>Core Capabilities</h2>
+    <div class="card">
+    <span class="highlight">Real-Time Orbital Tracking:</span> Continuous monitoring of satellites and debris objects.
+    </div class="card">
+    <div class="card">
+    <span class="highlight">Automated Conjunction Assessment:</span> Detection of close approaches using orbital propagation.
+    </div>
+    <div class="card">
+    <span class="highlight">Collision Probability Analysis:</span> Risk modeling using closest approach distance calculations.
+    </div>
+    <div class="card">
+    <span class="highlight">Rule-Based AI Classification:</span> Categorization of objects by type, threat level, and orbital regime.
+    </div>
+    <div class="card">
+    <span class="highlight">3D Interactive Visualization:</span> Dynamic orbital dashboard for intuitive space traffic awareness.
+    </div>
+</section>
+
+<section id="technology">
+<h2>Technical Architecture & Methodology</h2>
+
+<div class="card">
+<h3><span class="highlight">Data & Processing Layer</span></h3>
+<ul>
+<li>NORAD Two-Line Element (TLE) datasets via CelesTrak API.</li>
+<li>SGP4 orbital propagator for precise position forecasting.</li>
+<li>Python-based scalable backend supporting 30,000+ objects.</li>
+<li>Spatial indexing & optimized conjunction filtering.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3><span class="highlight">AI & Risk Modeling</span></h3>
+<ul>
+<li>Rule-based AI for object-type classification.</li>
+<li>Collision probability modeling using closest approach distance.</li>
+<li>Risk-level categorization for proactive maneuver planning.</li>
+<li>Confidence interval estimation for uncertainty awareness.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3><span class="highlight">Visualization & Dashboard</span></h3>
+<ul>
+<li>Interactive 3D orbital environment rendering.</li>
+<li>Real-time alert dashboard.</li>
+<li>Dynamic orbital region filtering (LEO, MEO, GEO).</li>
+<li>Student-accessible web interface.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3><span class="highlight">Technologies Used:</span></h3>
+<ul>
+<li><span class ="highlight">NORAD TLE Data:</span> Real-time orbital element sets for satellites and debris.</li>
+<li><span class ="highlight">SGP4 Propagation Model:</span> Industry-standard orbital mechanics computation.</li>
+<li><span class ="highlight">Python Backend:</span> Data processing, position calculation, and collision prediction.</li>
+<li><span class ="highlight">Streamlit + Plotly:</span> Interactive 3D orbital visualization dashboard.</li>
+</ul>
+</div>
+
+</section>
+
+<section id="impact">
+<h2>Strategic Impacts</h2>
+
+<div class="card">
+<span class="highlight">For Space Agencies:</span> Enhanced mission safety and operational continuity.
+</div>
+
+<div class="card">
+<span class="highlight">For Satellite Operators:</span> Reduced insurance costs via predictive alerts.
+</div>
+
+<div class="card">
+<span class="highlight">For Defense Organizations:</span> Strategic orbital asset awareness and threat intelligence.
+</div>
+
+<div class="card">
+<span class="highlight">For Sustainability:</span> Supports long-term debris mitigation and orbital preservation.
+</div>
+
+</section>
+
+<section id="future">
+    <h2>Future Vision</h2>
+    <div class="card">
+        <span class="highlight">KAAL-VYUH aims to expand beyond Low Earth Orbit (LEO) into Medium Earth Orbit (MEO) 
+        and Geostationary Orbit (GEO) environments.
+        </span>
+        <br><br>
+        Planned advancements include:
+        <ul>
+            <li>AI-driven fuel-optimized collision avoidance maneuver planning</li>
+            <li>Autonomous orbital defense intelligence systems</li>
+            <li>Enhanced uncertainty modeling and confidence interval display</li>
+            <li>Global student-accessible orbital analytics portal</li>
+        </ul>
+
+        <span class="highlight">KAAL-VYUH aims to evolve into a comprehensive orbital intelligence ecosystem 
+        capable of supporting both civilian and defense space operations globally.</span>
+    </div>
+</section>
+
+<section id="gallery">
+<h2>Orbital Intelligence Gallery</h2>
+
+<div class="image-grid">
+<img src="https://images-assets.nasa.gov/image/PIA12235/PIA12235~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/iss040e090540/iss040e090540~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/PIA04252/PIA04252~orig.jpg" alt="Orbital Debris Illustration">
+<img src="https://images-assets.nasa.gov/image/PIA08329/PIA08329~orig.jpg" alt="Geostationary Orbit Visualization">
+<img src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001861/GSFC_20171208_Archive_e001861~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/PIA01322/PIA01322~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/PIA04921/PIA04921~orig.jpg" alt="Earth from Space">
+<img src="https://images-assets.nasa.gov/image/PIA03149/PIA03149~orig.jpg" alt="Satellite in Orbit">
+<img src="https://images-assets.nasa.gov/image/PIA12228/PIA12228~orig.jpg" alt="Space Debris Visualization">
+<img src="https://images-assets.nasa.gov/image/PIA18175/PIA18175~orig.jpg" alt="Earth and Space Horizon">
+<img src="https://images-assets.nasa.gov/image/PIA02820/PIA02820~orig.jpg" alt="Spacecraft and Earth">
+<img src="https://images-assets.nasa.gov/image/PIA21421/PIA21421~orig.jpg" alt="Satellite Earth Coverage Map">
+<img src="https://images-assets.nasa.gov/image/PIA15318/PIA15318~orig.jpg" alt="Global Satellite Tracking">
+<img src="https://images-assets.nasa.gov/image/PIA20762/PIA20762~orig.jpg" alt="Orbital Mechanics Visualization">
+<img src="https://images-assets.nasa.gov/image/PIA19808/PIA19808~orig.jpg" alt="Low Earth Orbit Illustration">
+
+</div>
+
+</section>
+
+<footer>
+© 2026 KAAL-VYUH Space Situational Awareness System  
+<br>
+Advancing Orbital Intelligence | Space & Defense Innovation
+</footer>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlides(){
+    slides.forEach(slide => slide.classList.remove("active"));
+    index++;
+    if(index >= slides.length){ index = 0; }
+    slides[index].classList.add("active");
+}
+
+setInterval(showSlides, 5000);
+</script>
+
+</body>
+</html>
+
+{% endblock %}

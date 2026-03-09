@@ -1,0 +1,9 @@
+Flask
+pandas
+numpy
+requests
+skyfield
+plotly
+openai
+python-dotenv
+gunicorn

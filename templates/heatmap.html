@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Orbital Density Heatmap</h2>
+<div id="map" style="height:600px;"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const points = {{ coords|tojson|safe }};
+
+    const map = L.map('map').setView([20,0],2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:18
+    }).addTo(map);
+
+    L.heatLayer(points,{
+        radius:25,
+        blur:15
+    }).addTo(map);
+
+});
+</script>
+
+{% endblock %}
